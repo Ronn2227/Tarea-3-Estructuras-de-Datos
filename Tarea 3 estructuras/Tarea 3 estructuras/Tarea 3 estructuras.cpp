@@ -44,7 +44,7 @@ int _tmain(int argc, _TCHAR* argv[]){
 				}
 				if (b > -2){
 					
-					disfrute[i] = &b;
+					*disfrute[i] = b;
 					++i;
 				}
 			}	

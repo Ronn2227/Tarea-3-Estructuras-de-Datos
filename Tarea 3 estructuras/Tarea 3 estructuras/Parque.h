@@ -6,56 +6,62 @@ class Parque{
 public:
 	Parque(){};
 	~Parque(){}
-	std::vector<int> busquedaExhaustiva(const int** espera, int m, int n, const int* disfrute, const int** traslado){
+	std::vector<int> busquedaExhaustiva(int** espera, int m, int n, int* disfrute, int** traslado){
 		maximo = 0;
 		std::vector<int> respuesta(m);
 		std::vector<int> borrador(m);
-		busquedaRecursiva(0, 0 , 0, espera, traslado, disfrute, m, n, respuesta, borrador);
-		respuesta.shrink_to_fit();
-
+		busquedaRecursiva(0, 0, 0, espera, traslado, disfrute, m, n, respuesta, borrador);
+		int i = 1;
+		while (respuesta[i] != 0){
+			++i;
+		}
+		respuesta.resize(i);
 		return respuesta;
 	}
-	std::vector<int> programacionDinamica(const int** espera, int m, int n, const int* disfrute, const int** traslado){};
+	std::vector<int> programacionDinamica(const int** espera, int m, int n, const int* disfrute, const int** traslado){
+
+	}
 	std::vector<int> algoritmoAvido(const int** espera, int m, int n, const int* disfrute, const int** traslado){};
 
 private:
 	int maximo = 0;
 
-	int busquedaRecursiva(int i, int tiempoAcumulado , int disfruteAcumulado, const int ** espera, const int** traslado,
-						  const int* disfrute, int m, int n, std::vector<int> respuesta, std::vector<int> borrador){
-		int maxDisfrute = 0;
+	int busquedaRecursiva(int i, int tiempoAcumulado , int atraccionesVisitadas, int ** espera, int** traslado,
+						  const int* disfrute, int m, int n, std::vector<int> & respuesta, std::vector<int>& borrador){
+		int maxAtracciones = 0;
 		if (tiempoAcumulado == m || i == m){
-			maxDisfrute = disfruteAcumulado;
+			maxAtracciones = atraccionesVisitadas;
 		}
 		else{
-			for (int j = 1; j <= n; ++j){
+			for (int j = 1; j < n; ++j){ // Prueba eligiendo cada posible atraccion
 				int duracion;
-				if (i > 0){
-					duracion = espera[j][tiempoAcumulado] + traslado[borrador[i - 1]][j] + disfrute[j];
+				if (i > 0 && tiempoAcumulado + traslado[borrador[i - 1]][j - 1] < m){
+					duracion = traslado[borrador[i - 1]][j - 1] + espera[tiempoAcumulado + traslado[borrador[i - 1]][j - 1]][j] + disfrute[j - 1];
 				}
 
-				if (i = 0){
-					duracion = espera[j][tiempoAcumulado] + traslado[borrador[i]][j] + disfrute[j];
+				if (i == 0 && espera[tiempoAcumulado + traslado[0][j-1]][j] != -1){
+					duracion = traslado[0][j - 1] + espera[tiempoAcumulado + traslado[0][j - 1]][j] + disfrute[j - 1];
 					borrador[i] = j;
-					maxDisfrute = busquedaRecursiva(i + 1, tiempoAcumulado + duracion, disfruteAcumulado + disfrute[j], espera, traslado, disfrute, m, n, respuesta, borrador);
-					if (maxDisfrute > maximo){
-						maximo = maxDisfrute;
+					maxAtracciones = busquedaRecursiva(i + 1, tiempoAcumulado + duracion, atraccionesVisitadas + 1, espera, traslado, disfrute, m, n, respuesta, borrador);
+					if (maxAtracciones > maximo){
+						maximo = maxAtracciones;
 						respuesta = borrador;
 					}
 				}
-				else if (j != borrador[i - 1] && duracion + traslado[j][n] <= m - tiempoAcumulado){
-					maxDisfrute = busquedaRecursiva(i + 1, tiempoAcumulado + duracion, disfruteAcumulado + disfrute[j], espera, traslado, disfrute, m, n, respuesta, borrador);
-					if (maxDisfrute > maximo){
-						maximo = maxDisfrute;
+				else if (i > 0 && j != borrador[i - 1] && tiempoAcumulado + traslado[borrador[i - 1]][j - 1] < m && duracion + traslado[j][n - 1] <= m - tiempoAcumulado && espera[tiempoAcumulado + traslado[borrador[i - 1]][j - 1]][j] != -1){
+					borrador[i] = j;
+					maxAtracciones = busquedaRecursiva(i + 1, tiempoAcumulado + duracion, atraccionesVisitadas + 1, espera, traslado, disfrute, m, n, respuesta, borrador);
+					if (maxAtracciones > maximo){
+						maximo = maxAtracciones;
 						respuesta = borrador;
 					}
 				}
 			}
 		}
-		if (maxDisfrute == 0){
-			maxDisfrute = disfruteAcumulado;
+		if (maxAtracciones == 0){
+			maxAtracciones = atraccionesVisitadas;
 		}
-		return maxDisfrute;
+		return maxAtracciones;
 	}
 };
 

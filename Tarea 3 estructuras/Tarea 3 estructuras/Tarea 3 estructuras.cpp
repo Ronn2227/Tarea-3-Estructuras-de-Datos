@@ -177,8 +177,8 @@ int _tmain(int argc, _TCHAR* argv[]){
 	*/
 	
 	int inicio = 0;
-	int final = 23;
-	int tamano = 24;
+	int final = 12;
+	int tamano = 12;
 	tiempo = new int*[tamano];
 	int ini;
 	for (i = 0, ini = inicio; i < tamano; ++i, ++ini){
@@ -195,7 +195,7 @@ int _tmain(int argc, _TCHAR* argv[]){
 	}
 
 	QueryPerformanceCounter(&t_ini);
-	orden = diversiones.busquedaExhaustiva(tiempo,tamano,14,disfrute,traslado);
+	orden = diversiones.programacionDinamica(tiempo,tamano,14,disfrute,traslado);
 	QueryPerformanceCounter(&t_fin);
 	secs = performancecounter_diff(&t_fin, &t_ini);
 	printf("%.16g milliseconds\n", secs * 1000);

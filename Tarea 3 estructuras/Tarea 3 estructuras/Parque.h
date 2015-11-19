@@ -6,6 +6,7 @@ class Parque{
 public:
 	Parque(){};
 	~Parque(){}
+
 	std::vector<int> busquedaExhaustiva(int** espera, int m, int n, int* disfrute, int** traslado){
 		maximo = 0;
 		std::vector<int> respuesta(m);
@@ -18,6 +19,7 @@ public:
 		respuesta.resize(i);
 		return respuesta;
 	}
+
 	std::vector<int> programacionDinamica(int** espera, int m, int n, int* disfrute, int** traslado){
 		int ** oraculo = new int*[m];
 		int ** camino = new int*[m];
@@ -56,13 +58,57 @@ public:
 		}
 		return respuesta;
 	}
-	std::vector<int> algoritmoAvido(const int** espera, int m, int n, const int* disfrute, const int** traslado){};
+
+	std::vector<int> algoritmoAvido(int** espera, int m, int n, int* disfrute, int** traslado){
+		std::vector<int> respuesta(m);
+		int tiempoGastado = 0;
+		int anterior = 0;
+		for (int i = 0; i < m && tiempoGastado <= m; ++i){
+			int menor = m;
+			for (int j = 1; j < n; ++j){
+				if (j != anterior && tiempoGastado + traslado[anterior][j - 1] < m){
+					int duracion = traslado[anterior][j - 1] + espera[tiempoGastado + traslado[anterior][j - 1]][j] + disfrute[j - 1];
+					if (tiempoGastado + duracion + traslado[j][n - 1] <= m){
+						if (duracion < menor){
+							menor = duracion;
+							respuesta[i] = j;
+						}
+						else if (duracion == menor){
+							int duracion1 = -1;
+							int duracion2 = -1;
+							int siguiente = mejorSiguiente(tiempoGastado + menor, respuesta[i], espera, m, n, disfrute, traslado);
+							if (siguiente > -1){
+								duracion1 = traslado[respuesta[i]][siguiente - 1] + espera[tiempoGastado + menor + traslado[respuesta[i]][siguiente - 1]][siguiente] + disfrute[siguiente - 1];
+							}
+							siguiente = mejorSiguiente(tiempoGastado + menor, j, espera, m, n, disfrute, traslado);
+							if (siguiente > -1){
+								duracion2 = traslado[j][siguiente - 1] + espera[tiempoGastado + menor + traslado[j][siguiente - 1]][siguiente] + disfrute[siguiente - 1];
+							}
+							if (duracion1 > duracion2){
+								respuesta[i] = j;
+							}
+						}
+					}
+				}
+			}
+			tiempoGastado += menor;
+			anterior = respuesta[i];
+		}
+
+		int i = 1;
+		while (respuesta[i] != 0){
+			++i;
+		}
+		respuesta.resize(i);
+
+		return respuesta;
+	}
 
 private:
 	int maximo = 0;
 
 	int busquedaRecursiva(int i, int tiempoAcumulado , int atraccionesVisitadas, int ** espera, int** traslado,
-						  const int* disfrute, int m, int n, std::vector<int> & respuesta, std::vector<int>& borrador){
+						  int* disfrute, int m, int n, std::vector<int> & respuesta, std::vector<int>& borrador){
 		int maxAtracciones = 0;
 		if (tiempoAcumulado == m || i == m){
 			maxAtracciones = atraccionesVisitadas;
@@ -97,6 +143,21 @@ private:
 			maxAtracciones = atraccionesVisitadas;
 		}
 		return maxAtracciones;
+	}
+
+	int mejorSiguiente(int momento, int atraccion, int** espera, int m, int n, int* disfrute, int** traslado){
+		int mejor = m;
+		int respuesta = -1;
+		for (int i = 1; i < n; ++i){
+			if (i != atraccion && momento + traslado[atraccion][i - 1] < m){
+				int duracion = traslado[atraccion][i - 1] + espera[momento + traslado[atraccion][i - 1]][i] + disfrute[i - 1];
+				if (duracion < mejor){
+					mejor = duracion;
+					respuesta = i;
+				}
+			}
+		}
+		return respuesta;
 	}
 };
 

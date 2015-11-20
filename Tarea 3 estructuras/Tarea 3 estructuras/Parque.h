@@ -159,6 +159,21 @@ private:
 		}
 		return respuesta;
 	}
+
+	int mejorAnterior(int momento, int atraccion, int** espera, int m, int n, int* disfrute, int** traslado){
+		int mejor = m;
+		int respuesta = -1;
+		for (int i = 1; i < n; ++i){
+			if (i != atraccion && momento - traslado[atraccion][0] > 0){
+				int duracion = traslado[atraccion][i - 1] + espera[momento - traslado[atraccion][i - 1]-disfrute [i-1]][i] + disfrute[i - 1];
+				if (duracion > mejor){
+					mejor = duracion;
+					respuesta = i;
+				}
+			}
+		}
+		return respuesta;
+	}
 };
 
 #endif

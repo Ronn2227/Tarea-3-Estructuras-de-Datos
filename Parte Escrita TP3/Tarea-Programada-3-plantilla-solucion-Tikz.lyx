@@ -2714,7 +2714,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Orden de visita a las atracciones del Parque Nacional de Diversiones con
- hora de llegada de 9 a.m 
+ hora de llegada de 10 a.m 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:ruta10"
@@ -2761,7 +2761,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Orden de visita a las atracciones del Parque Nacional de Diversiones con
- hora de llegada de 9 a.m 
+ hora de llegada de 2 p.m 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:ruta2"
@@ -2806,7 +2806,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Orden de visita a las atracciones del Parque Nacional de Diversiones con
- hora de llegada de 9 a.m 
+ hora de llegada de 3 p.m 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:ruta3"
@@ -2824,7 +2824,102 @@ name "fig:ruta3"
 \end_inset
 
 si llega a las 3 de la tarde.
- 
+ En el caso de que llegue a la 1 p.m.
+ al Parque y desee permanecer solo por una hora, debe seguir el orden mostrado
+ en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ruta1a"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ruta1a.png
+	scale 65
+	noUnzip
+	scaleBeforeRotation
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Orden de visita a las atracciones del Parque Nacional de Diversiones con
+ hora de llegada de 1 p.m con y permanencia de 1 hora 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ruta1a"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ pero si desea permanecer por dos, tres o cuatro horas debe seguir la la
+ ruta mostrada en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ruta1b"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Ruta1b.png
+	scale 65
+	noUnzip
+	scaleBeforeRotation
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Orden de visita a las atracciones del Parque Nacional de Diversiones con
+ hora de llegada de 1 p.m y permanencia de dos o mas horas 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ruta1b"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+; cabe mencionar que si se desea permanecer por 2 horas se debe seguir la
+ ruta desde el inicio hasta el ultimo circulo verde y luego ir a la salida,
+ si se desea permanecer 3 horas se sigue hasta el último circulo verde claro
+ y luego la salida y si son 4 horas sigue hasta el último circulo purpura
+ y se dirige a la salida.
 \end_layout
 
 \begin_layout Section

@@ -362,13 +362,6 @@ El segundo fue el de programación dinámica, para el cual es pertinente mencion
 \begin_inset Formula $i$
 \end_inset
 
-<<<<<<< HEAD
- se puede escoger ir a una atracción j y a partir de eso se puede maximizar
- la cantidad de atracciones que se puede visitar a partir del tiempo restante,
- con la unica restriccíón de que se debe tomar en cuenta la atracción anterior
- (pues no se pueden repetir consecutivamente), teniendo esto en cuenta,
- se puede definir un oraculo como una matriz 
-=======
  se puede escoger ir a auna atracción 
 \begin_inset Formula $j$
 \end_inset
@@ -378,7 +371,6 @@ El segundo fue el de programación dinámica, para el cual es pertinente mencion
  de que se debe tomar en cuenta la atracción anterior (pues no se pueden
  repetir consecutivamente), teniendo esto en cuenta, se puede definir un
  oráculo como una matriz 
->>>>>>> 2b016438578728c193e1f3b8532f08ad7c09e775
 \begin_inset Formula $C$
 \end_inset
 
@@ -430,10 +422,10 @@ Resultados
 \end_layout
 
 \begin_layout Standard
-Con la implementación del algoritmo de busqueda exhaustiva se lograron obtener
- los tiempos de ejecucion de las cinco horas de llegada con un tiempo de
- permanencia de una hora y algunas con permanencia de 2 horas, tal como
- se observa en el Cuadro
+Con la implementación de este algoritmo se lograron obtener los tiempos
+ de ejecucion de las cinco horas de llegada con un tiempo de permanencia
+ de una hora y algunas con permanencia de 2 horas, tal como se observa en
+ el Cuadro
 \begin_inset space ~
 \end_inset
 
@@ -2187,8 +2179,8 @@ Programación dinámica
 Con respecto a los tiempos de ejecución, en búsqueda exhaustiva se puedo
  ver que para determinar el orden de visita de las atracciones con tiempos
  de permenancia de 2 horas o mas tiene tiempos mayores a diez minutos por
- lo que no se pudo gráficar los tiempos de ejecución, sin embargo, en la
- Figura
+ lo que no se pudo gráficar los tiempos de ejecución, sin embargo, con programac
+ión dinámica Figura
 \begin_inset space ~
 \end_inset
 
@@ -2282,9 +2274,7 @@ name "fig:lin"
 
 \end_inset
 
- se puede ver los tiempos de ejecución según la cantidad de horas de permanencia
- en el parque.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -3001,28 +2991,19 @@ Conclusiones
 \begin_layout Standard
 A partir de los resultados se puede concluir que si se desea permanecer
  una hora en el Parque Nacional de Diversiones la mejor hora para de maximizar
- el disfrute y la cantidad de atracciones visitadas es a la 3 p.m., ya que
+ el disfrute y la cantidad de atracciones visitadas es a la 1 p.m., ya que
  con ello se logran visitar nueve atracciones.
- En el caso de querer permanecer por dos horas lo mejor es llegar a las
- 10 a.m.
- o 1 p.m.
- ya que se visitarían 17 atracciones pero si se permanece por 3 horas se
- puede llegar a disfrutar hasta de 27 atracciones si la hora de llegada
- es a las 10 a.m.
- o a las 3 p.m..
- Finalmente si desea permanecer por cuatro horas se debería llegar a las
- 3 p.m para disfrutar de un total de 39 atracciones en ese lapso de tiempo.
-\end_layout
-
-\begin_layout Standard
-Como se vió en la parte del espacio acotado de la búsqueda exhaustiva, este
- tiene un crecimiento exponencial, por lo que el crecimiento de los tiempos
- de ejecución sí era esperado, sin embargo, no se esperaba que no se pudiera
- lograr obtener todos los tiempos de ejecución cuando se tiene una permencia
- de dos horas en el parque; se puede decir que estos tiempos no se lograron
- obtener antes de los 10 minutos debido a la cantidad de tiempos en donde
- las atracciones no estan disponibles, ya que esto reducía el tiempo de
- ejecución.
+ Asimismo, la mejor recomendación que se le puede dar al profesor en caso
+ de que desee permenencer en el parque por dos horas, es que vaya a las
+ 3 p.m.
+ ya que con ellos logra visitar 16 atracciones.
+ Como se vió en la parte del espacio acotado, este tiene un crecimiento
+ exponencial, por lo que el crecimiento de los tiempos de ejecución sí era
+ esperado, sin embargo, no se esperaba que no se pudiera lograr obtener
+ todos los tiempos de ejecución cuando se tiene una permencia de dos horas
+ en el parque; se puede decir que estos tiempos no se logranron obtener
+ antes de los 10 minutos debido a la cantidad de tiempos en donde las atraccione
+s no estan disponibles, ya que esto reducía el tiempo de ejecución.
  
 \end_layout
 

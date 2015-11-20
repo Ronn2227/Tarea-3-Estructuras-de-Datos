@@ -63,7 +63,7 @@ public:
 		std::vector<int> respuesta(m);
 		int tiempoGastado = 0;
 		int anterior = 0;
-		for (int i = 0; i < m && tiempoGastado <= m; ++i){
+		for (int i = m-1; i > 0 && tiempoGastado <= m; --i){
 			int menor = m;
 			for (int j = 1; j < n; ++j){
 				if (j != anterior && tiempoGastado + traslado[anterior][j - 1] < m){

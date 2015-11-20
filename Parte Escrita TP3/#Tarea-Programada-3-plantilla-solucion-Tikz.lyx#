@@ -374,16 +374,7 @@ El segundo fue el de programación dinámica, para el cual es pertinente mencion
 \begin_inset Formula $C_{i\,j}$
 \end_inset
 
-representa la máxima cantidad de atracciones que se puede visitar a partir
- del momemto
-\begin_inset Formula $i$
-\end_inset
-
- viniendo de la atracción 
-\begin_inset Formula $j$
-\end_inset
-
- (la atraccion anterior)
+representa la máxima 
 \end_layout
 
 \begin_layout Section

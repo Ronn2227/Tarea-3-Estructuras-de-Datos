@@ -102,7 +102,7 @@ status open
 
 \begin_layout Plain Layout
 Estructuras de Datos y Análisis de Algoritmos -- Tarea I -- Alejandra Víctor
- y Ronald Leon 
+ y Ronald León 
 \end_layout
 
 \end_inset
@@ -111,17 +111,19 @@ Estructuras de Datos y Análisis de Algoritmos -- Tarea I -- Alejandra Víctor
 \end_layout
 
 \begin_layout Abstract
-En este trabajo se analiza los tiempos de ejecución de los algortimos de
- búsqueda exhaustiva y programación dinámica, con el fin de resolver el
- problema del Viaje del profesor Casasola al Parque Nacional de Diversiones,
- mediante la implementación en el lenguaje C++ que ejecute ambos algoritmos.
+En este trabajo se analiza los tiempos de ejecución de los algoritmos de
+ búsqueda exhaustiva, programación dinámica y algoritmo ávido, con el fin
+ de resolver el problema del Viaje del profesor Casasola al Parque Nacional
+ de Diversiones, mediante la implementación de un programa en el lenguaje
+ C++ que ejecute ambos algoritmos.
  El resultado de este análisis proporciona el orden en que se deben visitar
  las atracciones en el Parque, para el cual se maximiza la cantidad de atraccion
 es visitadas.
- Se concluye que los tiempos de ejecución de la busqueda eshaustiva tienen
+ Se concluye que los tiempos de ejecución de la búsqueda exhaustiva tienen
  un crecimiento exponencial por lo que obtener el orden de visitas de las
- atracciones en ciertas permenencias no se lograron conseguir mientras que
- el de programación dinámica tuvo tiempos (lineales).
+ atracciones en ciertas permanencias no se lograron conseguir mientras que
+ el de programación dinámica tuvo tiempos (lineales) y el algoritmo ávido
+ que se encontró fue muy ineficiente, aunque mejor que la búsqueda exhaustiva.
  
 \end_layout
 
@@ -183,7 +185,7 @@ vos ejecuten programas en el menor tiempo posible y dependiendo del dispositivo,
  una cantidad óptima de espacio dependiendo de la funcionalidad que se requiera.
  Tres formas de resolver situaciones en donde el objetivo es encontrar una
  solución óptima (maximizar o minimizar resultados) de acuerdo a una serie
- de parametros establecidos son la búsqueda exhaustiva, algoritmos ávidos
+ de parámetros establecidos son la búsqueda exhaustiva, algoritmos ávidos
  y programación dinámica.
 \end_layout
 
@@ -203,27 +205,28 @@ pretende indicarle al profesor el orden que debe visitar las atracciones
  del Parque Nacional de Diversiones para poder disfrutarla de la mayor cantidad
  de atracciones posibles durante su visita, dependiendo de la hora de llegada
  y el tiempo que desea estar.
- Para lograr lo propuesto, se implementó los algoritmos de búsqueda exhaustiva
- y programación dinamica en el lenguaje de programación C++ para encontrar
- el orden en que se deben visitar las atracciones.
+ Para lograr lo propuesto, se implementó los algoritmos de búsqueda exhaustiva,
+ programación dinámica y algoritmo ávido en el lenguaje de programación
+ C++ para encontrar el orden en que se deben visitar las atracciones.
  Se establecieron cinco horas de llegada: 9 a.m., 10a.m., 1 p.m., 2 p.m.
- y 3 p.m., en donde a partir de cada una de las horas de llegada el profesor
- va a estar en el parque por 1, 2, 3 o 4 horas.
+ y 3 p.m., en donde a partir de cada una de ellas el profesor va a estar en
+ el parque por 1, 2, 3 o 4 horas.
  Gracias a las observaciones realizadas por los estudiantes y el profesor
  del grupo 3 y 4 del curso de Estructuras de Datos y Análisis de Algoritmos
  a 13 atracciones del Parque Nacional de Diversiones, se tienen los tiempos
  de traslados entre las atracciones, los tiempos de espera en las filas
  y los tiempos de disfrute de cada una de ellas, las cuales son el principal
  insumo utilizado para poder implementar estos algoritmos.
- Cabe mencionar que estos estan discretizados a multiplos de 5 minutos por
+ Cabe mencionar que estos están discretizados a múltiplos de 5 minutos por
  facilidad y para minimizar el impacto de factores que pueden aumentar o
- disminiur los tiempos orignales de las observaciones como por ejemplo rutas
- tomadas para llegar a las atracciones, velocidad de la persona, mantenimiento
- de las atracciones, entre otros.
+ disminuir los tiempos originales de las observaciones como por ejemplo
+ rutas tomadas para llegar a las atracciones, velocidad de la persona, mantenimi
+ento de las atracciones, entre otros.
  Con esto se logró encontrar el orden de visita de las atracciones, según
- la hora de llegada y el tiempo de permanencia en el parque, que maximize
- el tiempo de disfrute del profesor en el parque y los tiempos de ejecución
- de los algoritmos de búsqueda exhaustiva y programación dinámica implementados.
+ la hora de llegada y el tiempo de permanencia en el parque, que maximice
+ la cantidad de atracciones que visita del profesor en el parque y los tiempos
+ de ejecución de los algoritmos de búsqueda exhaustiva, programación dinámica
+ implementados y algoritmo ávido.
 \end_layout
 
 \begin_layout Standard
@@ -260,7 +263,7 @@ representa la cantidad de atracciones máxima que se puede visitar en un
 \begin_inset Formula $E=N_{n}^{m}$
 \end_inset
 
- en donde esto significa 
+,esto significa 
 \begin_inset Formula $N_{n}\times N_{n}\text{\times}...\text{\times}N_{n},\,m$
 \end_inset
 
@@ -268,8 +271,11 @@ representa la cantidad de atracciones máxima que se puede visitar en un
 \begin_inset Formula $N_{n}$
 \end_inset
 
-es el conjunto de los números naturales hasta n, y la cardinalidad es de
- 
+es el conjunto de los números naturales hasta 
+\begin_inset Formula $n$
+\end_inset
+
+, y la cardinalidad del espacio es
 \begin_inset Formula $\left|E\right|=n^{m}\:$
 \end_inset
 
@@ -341,42 +347,37 @@ el tiempo de disfrute en la atracción
 \end_inset
 
 representa el tiempo de espera en la fila de la atracción 
-\begin_inset Formula $i$
+\begin_inset Formula $j$
 \end_inset
 
  al momento 
-\begin_inset Formula $j$
+\begin_inset Formula $i$
 \end_inset
 
  de llegada a la atracción, 
 \begin_inset Formula $T$
 \end_inset
 
- es el tiempo de permanencia en el parque.
+ es el tiempo de permanencia total en el parque.
 \end_layout
 
 \begin_layout Standard
 El segundo fue el de programación dinámica, para el cual es pertinente mencionar
- que es posible resolver el problema a partir de subproblemas, ya que a
- cada momento 
+ que es posible resolver el problema a partir de la resolución a subproblemas,
+ ya que a cada momento 
 \begin_inset Formula $i$
 \end_inset
 
- se puede escoger ir a una atracción j y a partir de eso se puede maximizar
- la cantidad de atracciones que se puede visitar a partir del tiempo restante,
- con la unica restriccíón de que se debe tomar en cuenta la atracción anterior
- (pues no se pueden repetir consecutivamente), teniendo esto en cuenta,
- se puede definir un oraculo como una matriz se puede escoger ir a auna
- atracción 
+ se puede escoger ir a una atracción 
 \begin_inset Formula $j$
 \end_inset
 
- y a partir de eso se puede simplemente maximizar la cantidad de atracciones
- que se puede visitar a partir del tiempo restante, con la unica restriccíón
+ y a partir de eso se puede maximizar la cantidad de atracciones que se
+ puede visitar del tiempo restante en adelante, con la única restricción
  de que se debe tomar en cuenta la atracción anterior (pues no se pueden
  repetir consecutivamente), teniendo esto en cuenta, se puede definir un
  oráculo como una matriz 
-\begin_inset Formula $C$
+\begin_inset Formula $C[m][n]$
 \end_inset
 
  donde la entrada 
@@ -392,7 +393,7 @@ representa la máxima cantidad de atracciones que se puede visitar a partir
 \begin_inset Formula $j$
 \end_inset
 
- (la atraccion anterior) con 
+ (la atracción anterior) con 
 \begin_inset Formula $i=0,1,2,...,m$
 \end_inset
 
@@ -401,15 +402,16 @@ representa la máxima cantidad de atracciones que se puede visitar a partir
 \end_inset
 
 .
- Con el oráculo definido anterior mente podemos obtener el resultado en
+ Con el oráculo, definido anteriormente, podemos obtener el resultado en
  la posición de la matriz 
 \begin_inset Formula $C_{0,0}$
 \end_inset
 
  pues esto representa el valor máximo de atracciones que se pueden visitar
  a partir del momento 0 (momento de llegada) y viniendo de la atracción
- 0 (la entrada).
- Para llenar este oráculo en necesario definir un paso base el cual es 
+ 0 (la entrada) que es lo que se busca saber para resolver el problema.
+ Para llenar este oráculo en necesario definir un paso base, el cual es
+ 
 \begin_inset Formula $C_{m,k}=0$
 \end_inset
 
@@ -417,17 +419,21 @@ representa la máxima cantidad de atracciones que se puede visitar a partir
 \begin_inset Formula $k=0,1,2,...,n$
 \end_inset
 
- pues en el momento m ya no se puede visitar ninguna atracción, sino que
- ya debería estar en la salida, por otro lado para llenar el resto de la
- matriz se puede realizar de la siguiente manera:
+ pues en el momento 
+\begin_inset Formula $m$
+\end_inset
+
+ ya no se puede visitar ninguna atracción, sino que ya debería estar en
+ la salida, por otro lado para llenar el resto de la matriz se puede realizar
+ de la siguiente manera:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-C_{i,j}=\begin{cases}
+C_{i,j}=\max\begin{cases}
 1+C_{i+y,k=1}\\
-1+C_{i+y,k=2}\text{}\\
+1+C_{i+y,k=2}\\
 \vdots\\
 1+C_{i+y,k=13}
 \end{cases}
@@ -464,13 +470,13 @@ el tiempo de traslado de la atracción
 \end_inset
 
 , 
-\begin_inset Formula $d_{i}$
+\begin_inset Formula $d_{k}$
 \end_inset
 
 el tiempo de disfrute en la atracción 
 \noun on
 
-\begin_inset Formula $i$
+\begin_inset Formula $k$
 \end_inset
 
 , 
@@ -480,14 +486,53 @@ el tiempo de disfrute en la atracción
 \end_inset
 
 representa el tiempo de espera en la fila de la atracción 
-\begin_inset Formula $i$
-\end_inset
-
- al momento 
 \begin_inset Formula $k$
 \end_inset
 
+ al momento
+\begin_inset Formula $i$
+\end_inset
+
  de llegada a la atracción.
+\end_layout
+
+\begin_layout Standard
+El tercero fue el algoritmo ávido, para el cual se hicieron muchos intentos
+ con distintas formas de intentar resolver el problema, primeramente se
+ intento solo escogiendo la siguiente atracción cuya duración de utilización
+ (traslado desde la atracción anterior, fila y disfrute de la misma) fuera
+ el menor, pero esta solución casi nunca daba la solución óptima, pues cuando
+ había varias atracciones con el mismo tiempo de utilización se tomaba la
+ primera que se encontrara pero dependiendo del caso era mejor escoger otra
+ de esas opciones para mejorar la siguiente atracción después de la escogida.
+ La anterior solución dio lugar a la segunda, en la cual se decidió mejorar
+ la anterior averiguando a partir de las atracciones que tuvieran menor
+ tiempo de utilización, con cual se podía escoger una mejor siguiente, lo
+ que es decir, a partir de cual de las mejores opciones puedo escoger una
+ mejor opción más adelante, para lo cual se implemento un método extra que
+ calculara cual sería la mejor siguiente a partir de la elección actual
+ y así poder escoger el mejor actual que maximise las siguientes elecciones,
+ lo cual daba soluciones optimas para la mayoría de tiempos, sin embargo,
+ en casos muy específicos esa no era la mejor opción sino tomar otra atracción
+ que dure un poco más para luego elegir muchas que duren poco por lo cual
+ el algoritmo no daba las soluciones optimas en todos los casos.
+ Finalmente se decidió realizar una búsqueda exhaustiva a partir de solo
+ las mejores opciones (atracciones con menor tiempo de utilización) en cada
+ iteración, lo cual es ávido pues no considera todas las opciones sino las
+ mejores localmente, y además produce siempre la solución optima.
+\end_layout
+
+\begin_layout Standard
+Las pruebas se realizaron en una máquina cuyo sistema operativo es 
+\shape slanted
+Windows 10
+\shape default
+, con un procesador marca AMD modelo A10, en donde se hicieron las corridas
+ de los algoritmos utilizando el IDE 
+\shape slanted
+Visual Studio Professional 2013
+\shape default
+.
 \end_layout
 
 \begin_layout Section
@@ -495,8 +540,8 @@ Resultados
 \end_layout
 
 \begin_layout Standard
-Con la implementación del algoritmo de busqueda exhaustiva se lograron obtener
- los tiempos de ejecucion de las cinco horas de llegada con un tiempo de
+Con la implementación del algoritmo de búsqueda exhaustiva se lograron obtener
+ los tiempos de ejecución de las cinco horas de llegada con un tiempo de
  permanencia de una hora y algunas con permanencia de 2 horas, tal como
  se observa en el Cuadro
 \begin_inset space ~
@@ -2238,9 +2283,9 @@ Programación dinámica
 \end_inset
 
  se puede ver la cantidad de atracciones visitadas en cada una de las horas
- de llegada con permenencia de una hora y alunas con dos horas.
- Con ello podemos ver que la mjeor hora para visitar el parque si se va
- a permanecer una hora, es a la una de la tarde y si se va a permenecer
+ de llegada con permanencia de una hora y alunas con dos horas.
+ Con ello podemos ver que la mejor hora para visitar el parque si se va
+ a permanecer una hora, es a la una de la tarde y si se va a permanecer
  dos horas, lo recomendable es a las 3, sin embargo esta ultima afirmación
  esta sesgada ya que no se tiene el dato de la cantidad de atracciones visitadas
  a las 9 a.m, 10 a.m.
@@ -2254,8 +2299,8 @@ Si comparamos la máxima de atracciones obtenidas con tiempos de permanencia
  con programación dinámica presentan las mismas cantidades.
  Con respecto a los tiempos de ejecución, en búsqueda exhaustiva se puedo
  ver que para determinar el orden de visita de las atracciones con tiempos
- de permenancia de 2 horas o mas tiene tiempos mayores a diez minutos por
- lo que no se pudo gráficar los tiempos de ejecución, sin embargo, en la
+ de permanencia de 2 horas o mas tiene tiempos mayores a diez minutos por
+ lo que no se pudo graficar los tiempos de ejecución, sin embargo, en la
  Figura
 \begin_inset space ~
 \end_inset
@@ -2359,7 +2404,7 @@ name "fig:lin"
 \begin_layout Standard
 Uno de los datos más importantes obtenidos sen este trabajo es el orden
  de visitas de las atracciones del parque, por lo que en las siguientes
- imagenes se muestra esta información.
+ imágenes se muestra esta información.
  Para mostrar de una forma mas ordenada las rutas a seguir dentro del parque
  se utilizó el simbología presenta en el Cuadro 
 \begin_inset space ~
@@ -2377,7 +2422,7 @@ reference "tab:simbologia"
 placement b
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2420,7 +2465,7 @@ Atracción
 \begin_inset Text
 
 \begin_layout Plain Layout
-Simbolo
+Símbolo
 \end_layout
 
 \end_inset
@@ -2738,7 +2783,7 @@ S
  para representar las atracciones, la entrada y la salida.
  Asimismo, para reducir la cantidad de figuras, en cada una se muestra el
  orden de visita con una permanencia de 4 horas, ya que con esta permanencia
- se logra mostrar la ruta a seguir si el profesor permenece 1, 2 y 3 horas
+ se logra mostrar la ruta a seguir si el profesor permanece 1, 2 y 3 horas
  en el Parque.
  
 \end_layout
@@ -2791,7 +2836,7 @@ name "fig:ruta9"
 
  se puede ver el recorrido que debe hacer el profesor si llega al Parque
  Nacional de Diversiones a las 9 de la mañana.
- Para entender esta y las demas figuras cabe mencionar que los circulos
+ Para entender esta y las demás figuras cabe mencionar que los círculos
  en color rojo representan las atracciones que se pueden visitar en la primera
  hora de permanencia (en esta caso de 9 a 10 a.m.), las de color verde claro
  representan las de la segunda hora de permanencia (de 10 a 11 a.m.), los
@@ -2799,9 +2844,9 @@ name "fig:ruta9"
  a 12 p.m) y las púrpuras las de la cuarta hora (12 a 1 p.m.).
  Por ejemplo, si el profesor quiere saber el orden de atracciones que debe
  seguir si llega a las 9 a.m.
- y desea permenecer por dos horas, pues debe agarrar las primeras dos horas,
- es decir, seguir el orden de los circulos rojos y verdes y cuando llega
- al ultimo verde se dirige a la salida; si desea permenecer 3 horas con
+ y desea permanecer por dos horas, pues debe agarrar las primeras dos horas,
+ es decir, seguir el orden de los círculos rojos y verdes y cuando llega
+ al ultimo verde se dirige a la salida; si desea permanecer 3 horas con
  la misma hora de llegada pues sigue el orden hasta llegar al ultimo circulo
  celeste y luego dirigirse a la salida.
  
@@ -3071,22 +3116,204 @@ A partir de los resultados se puede concluir que si se desea permanecer
 \end_layout
 
 \begin_layout Standard
-Como se vió en la parte del espacio acotado de la búsqueda exhaustiva, este
+Como se vio en la parte del espacio acotado de la búsqueda exhaustiva, este
  tiene un crecimiento exponencial, por lo que el crecimiento de los tiempos
  de ejecución sí era esperado, sin embargo, no se esperaba que no se pudiera
- lograr obtener todos los tiempos de ejecución cuando se tiene una permencia
+ lograr obtener todos los tiempos de ejecución cuando se tiene una permanencia
  de dos horas en el parque; se puede decir que estos tiempos no se lograron
  obtener antes de los 10 minutos debido a la cantidad de tiempos en donde
- las atracciones no estan disponibles, ya que esto reducía el tiempo de
+ las atracciones no están disponibles, ya que esto reducía el tiempo de
  ejecución.
  Al comparar el tiempo de ejecución de búsqueda exhaustiva con programación
- dinámica se puede ver que con programación dinámica es susantacialmente
+ dinámica se puede ver que con programación dinámica es sustancialmente
  menor que búsqueda exhaustiva, asimismo, ambas presentan la misma cantidad
  de atracciones por lo que se puede decir que ambas implementaciones presentan
  la máxima cantidad de atracciones que se puede visitar en un lapso de tiempo
  previamente establecido pero con programación dinámica se puede obtener
  el resultado de una manera más rápida pero con un cantidad de espacio mayor
  que con búsqueda exhaustiva.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish-mexico
+Código
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+Los algoritmos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:exhaustiva"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:dinámica"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:ávido"
+
+\end_inset
+
+muestran el código utilizado para este trabajo.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+\begin_inset Float algorithm
+placement tp
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+Búsqueda Exhaustiva 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:exhaustiva"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "busqueda Exhaustiva.cpp"
+lstparams "language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+\begin_inset Float algorithm
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+Programación Dinámica 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:dinámica"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "Programación dinámica.cpp"
+lstparams "language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish-mexico
+\begin_inset Float algorithm
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+Algoritmo Ávido 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:ávido"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish-mexico
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "Algoritmo Ávido.cpp"
+lstparams "language={C++}"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

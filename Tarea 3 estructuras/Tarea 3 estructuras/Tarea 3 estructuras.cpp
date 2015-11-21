@@ -176,9 +176,9 @@ int _tmain(int argc, _TCHAR* argv[]){
 	}
 	*/
 	
-	int inicio = 48;
-	int final = 72;
-	int tamano = 24;
+	int inicio = 0;
+	int final = 48;
+	int tamano = 48;
 	tiempo = new int*[tamano];
 	int ini;
 	for (i = 0, ini = inicio; i < tamano; ++i, ++ini){
